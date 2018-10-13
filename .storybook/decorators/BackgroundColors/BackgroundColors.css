@@ -1,0 +1,29 @@
+.BackgroundColors > .wrapper {
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+}
+
+.BackgroundColors > .wrapper > .swatch:not(:first-child) {
+    margin-left: 10px;
+}
+
+.BackgroundColors > .wrapper > .swatch {
+    /*box-sizing: border-box;*/
+    width: 30px;
+    height: 30px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: #ffffff;
+}
+
+.BackgroundColors > .wrapper > .swatch.selected {
+    border: 3px solid red;
+}
