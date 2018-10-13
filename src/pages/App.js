@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import Album from './Album'
+import Album from './Album';
 
-const App = () => (
-  <Album />
-)
+const App = () => <Album />;
 
-export default App
+export default App;

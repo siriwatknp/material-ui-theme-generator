@@ -25,6 +25,7 @@
         "trailingComma": "es5"
       }
     ],
-    "comma-dangle": [2, "always-multiline"]
+    "comma-dangle": [2, "always-multiline"],
+    "react/forbid-prop-types": 0
   }
 }

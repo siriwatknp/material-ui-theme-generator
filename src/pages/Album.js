@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import AppBar from '@material-ui/core/AppBar';
@@ -84,13 +84,23 @@ function Album(props) {
         {/* Hero unit */}
         <div className={classes.heroUnit}>
           <div className={classes.heroContent}>
-            <Typography variant="display3" align="center" color="textPrimary" gutterBottom>
+            <Typography
+              variant="display3"
+              align="center"
+              color="textPrimary"
+              gutterBottom
+            >
               Album layout
             </Typography>
-            <Typography variant="title" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+            <Typography
+              variant="title"
+              align="center"
+              color="textSecondary"
+              paragraph
+            >
+              Something short and leading about the collection below—its
+              contents, the creator, etc. Make it short and sweet, but not too
+              short so folks don&apos;t simply skip over it entirely.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={16} justify="center">
@@ -124,7 +134,8 @@ function Album(props) {
                       Heading
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      This is a media card. You can use this section to describe
+                      the content.
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -146,7 +157,12 @@ function Album(props) {
         <Typography variant="title" align="center" gutterBottom>
           Footer
         </Typography>
-        <Typography variant="subheading" align="center" color="textSecondary" component="p">
+        <Typography
+          variant="subheading"
+          align="center"
+          color="textSecondary"
+          component="p"
+        >
           Something here to give the footer a purpose!
         </Typography>
       </footer>
