@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "react-app-ce8ba",
+    "staging": "react-app-ce8ba",
+    "production": "react-app-ce8ba"
+  }
+}
