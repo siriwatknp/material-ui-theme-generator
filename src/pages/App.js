@@ -2,6 +2,7 @@ import React from 'react';
 import ReactJson from 'react-json-view';
 import { compose, withState, withProps } from 'recompose';
 import { css } from 'react-emotion';
+import JssProvider from 'react-jss/lib/JssProvider';
 
 // COMPONENTS
 import Grid from '@material-ui/core/Grid';
@@ -22,10 +23,18 @@ import ThemeController from 'containers/ThemeController';
 
 // SECTIONS
 import Atoms from 'components/atoms';
+import Molecules from 'components/molecules';
 
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-import { createMuiTheme } from '@material-ui/core/styles';
+import {
+  createMuiTheme,
+  createGenerateClassName,
+} from '@material-ui/core/styles';
 import muiTheme from 'theme/muiTheme';
+
+const generateClassName = createGenerateClassName({
+  dangerouslyUseGlobalCSS: true,
+});
 
 const headingStyle = css({
   fontSize: 18,
@@ -53,45 +62,57 @@ const App = compose(
   }))
 )(({ theme, onUpdate, setTheme }) => (
   <Grid container>
-    <Grid item xs={4}>
-      <Paper style={{ position: 'relative' }}>
-        <Block.Flex flexDirection={'column'} className={panelStyle}>
-          <ThemeController currentTheme={theme} onChange={setTheme} />
-          <Block p={20} flex={1} className={'body'}>
-            <ReactJson
-              src={theme}
-              onEdit={onUpdate}
-              onAdd={onUpdate}
-              onDelete={onUpdate}
-            />
-          </Block>
-        </Block.Flex>
-      </Paper>
-    </Grid>
-    <Grid item xs={8}>
-      <MuiThemeProvider theme={createMuiTheme(theme)}>
-        <Block height={'100%'} background={'#f5f5f5'}>
-          <AppBar position={'static'}>
-            <Toolbar>
-              <Typography variant={'h6'} color={'inherit'}>
-                Components Preview
-              </Typography>
-            </Toolbar>
-          </AppBar>
-          <Block p={24}>
-            <ExpansionPanel defaultExpanded>
-              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant={'h6'} className={headingStyle}>
-                  ATOMS
+    {/*<Grid item xs={0}>*/}
+    {/*<Paper style={{ position: 'relative' }}>*/}
+    {/*<Block.Flex flexDirection={'column'} className={panelStyle}>*/}
+    {/*<ThemeController currentTheme={theme} onChange={setTheme} />*/}
+    {/*<Block p={20} flex={1} className={'body'}>*/}
+    {/*<ReactJson*/}
+    {/*src={theme}*/}
+    {/*onEdit={onUpdate}*/}
+    {/*onAdd={onUpdate}*/}
+    {/*onDelete={onUpdate}*/}
+    {/*/>*/}
+    {/*</Block>*/}
+    {/*</Block.Flex>*/}
+    {/*</Paper>*/}
+    {/*</Grid>*/}
+    <Grid item xs={12}>
+      <JssProvider generateClassName={generateClassName}>
+        <MuiThemeProvider theme={createMuiTheme(theme)}>
+          <Block height={'100%'} background={'#f5f5f5'}>
+            <AppBar position={'static'}>
+              <Toolbar>
+                <Typography variant={'h6'} color={'inherit'}>
+                  Components Preview
                 </Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <Atoms />
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
+              </Toolbar>
+            </AppBar>
+            <Block p={24}>
+              <ExpansionPanel defaultExpanded>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography variant={'h6'} className={headingStyle}>
+                    ATOMS
+                  </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <Atoms />
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+              <ExpansionPanel defaultExpanded>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography variant={'h6'} className={headingStyle}>
+                    Molecules
+                  </Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <Molecules />
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+            </Block>
           </Block>
-        </Block>
-      </MuiThemeProvider>
+        </MuiThemeProvider>
+      </JssProvider>
     </Grid>
   </Grid>
 ));
