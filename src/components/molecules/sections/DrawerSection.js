@@ -47,7 +47,7 @@ const categories = [
   },
 ];
 
-const DrawerSection = compose(withState('open', 'setOpen', true))(
+const DrawerSection = compose(withState('open', 'setOpen', false))(
   ({ open, setOpen }) => (
     <div style={{ marginBottom: 32 }}>
       <Typography color={'primary'} variant={'subtitle1'} gutterBottom>

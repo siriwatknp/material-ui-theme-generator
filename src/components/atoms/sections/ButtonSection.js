@@ -58,7 +58,7 @@ const ButtonSection = () => {
     createRow({
       variant: 'contained',
       classNames: ['danger'],
-      icon: <DeleteIcon className={'left'} />,
+      icon: <DeleteIcon className={'icon--left'} />,
     }),
   ];
   const renderRows = () =>
