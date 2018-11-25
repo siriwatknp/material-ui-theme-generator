@@ -1,45 +1,42 @@
-import React from 'react'
-import {
-  configure,
-  addDecorator
-} from '@storybook/react'
-import { withKnobs } from '@storybook/addon-knobs'
-import {
-  withBackgroundColors,
-  withMuiThemeProvider,
-} from './decorators'
-import 'sanitize.css/sanitize.css'
+import React from 'react';
+import { configure, addDecorator, setAddon } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
+import { setDefaults } from '@storybook/addon-info';
+import { setOptions } from '@storybook/addon-options';
+import JSXAddon from 'storybook-addon-jsx';
+import { withBackgroundColors, withCenteredPosition } from './decorators';
+import 'sanitize.css/sanitize.css';
 
-const req = require.context('./stories', true, /\.story\.js$/)
+const req = require.context('./stories', true, /\.story\.js$/);
 
-const withStoryStyles = storyFn => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh'
-      }}
-    >
-      {storyFn()}
-    </div>
-  )
-}
+setDefaults({
+  header: false,
+});
+
+setOptions({
+  hierarchySeparator: /\//,
+  hierarchyRootSeparator: /\|/,
+  name: 'Material-UI Themes',
+  url: 'https://github.com/siriwatknp/material-ui-theme-generator',
+});
+
+setAddon(JSXAddon);
 
 const loadStories = () => {
-  addDecorator(withKnobs)
-  addDecorator(withStoryStyles)
-  addDecorator(withBackgroundColors([
-    {
-      value: '#ffffff',
-      defaultColor: true
-    },
-    { value: '#000000' },
-    { value: '#a5a5a5' }
-  ]))
-  addDecorator(withMuiThemeProvider)
-  req.keys().forEach(filename => req(filename))
-}
+  addDecorator(withKnobs);
+  addDecorator(withCenteredPosition);
+  addDecorator(
+    withBackgroundColors([
+      {
+        value: '#ffffff',
+        defaultColor: true,
+      },
+      { value: '#000000' },
+      { value: '#a5a5a5' },
+    ])
+  );
 
-configure(loadStories, module)
+  req.keys().forEach(filename => req(filename));
+};
+
+configure(loadStories, module);

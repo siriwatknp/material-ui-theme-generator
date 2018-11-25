@@ -8,7 +8,6 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import CardActions from '@material-ui/core/CardActions';
-import Icon from '@material-ui/core/Icon';
 
 import Add from '@material-ui/icons/Add';
 import Explore from '@material-ui/icons/Explore';
