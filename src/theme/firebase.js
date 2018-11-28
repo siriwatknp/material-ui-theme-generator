@@ -10,6 +10,10 @@ const white = {
   hint: 'rgba(255, 255, 255, 0.24)',
 };
 
+const shade = {
+  light: '#f5f5f5',
+};
+
 const red = {
   main: '#ff5252',
   dark: '#e04848',
@@ -32,13 +36,16 @@ const linked = {
 
 const linkInverted = {
   ...linked,
-  color: 'rgba(255,255,255,0.7)',
+  color: white.primary,
   '&:hover': {
     color: theme.palette.common.white,
   },
 };
 
 const muiTheme = {
+  typography: {
+    useNextVariants: true,
+  },
   palette: {
     primary,
   },
@@ -46,6 +53,84 @@ const muiTheme = {
     borderRadius: theme.spacing.unit,
   },
   overrides: {
+    MuiPaper: {
+      root: {
+        '&.paper--of-hidden': {
+          overflow: 'hidden',
+        },
+      },
+    },
+    MuiTableRow: {
+      root: {
+        '&.table__row--narrow': {
+          height: 32,
+        },
+        '&.table__row--shaded': {
+          backgroundColor: shade.light,
+        },
+      },
+    },
+    MuiChip: {
+      root: {
+        '&.chip--inverted': {
+          backgroundColor: 'rgba(0,0,0,0.08)',
+          '& .MuiChip-label': {
+            color: white.primary,
+          },
+          '&:hover, &:active, &:focus': {
+            backgroundColor: theme.palette.divider,
+            '& .MuiChip-label': {
+              color: white.text,
+            },
+          },
+        },
+        '&.chip--narrow': {
+          '& .MuiChip-icon': {
+            marginLeft: 2,
+            marginRight: -theme.spacing.unit / 2,
+          },
+          '& .MuiChip-label': {
+            fontSize: 14,
+          },
+        },
+      },
+    },
+    MuiTabs: {
+      root: {
+        marginLeft: theme.spacing.unit,
+        '&.tabs--inverted': {
+          '& .MuiTabs-indicator': {
+            backgroundColor: theme.palette.common.white,
+          },
+        },
+      },
+      indicator: {
+        height: 3,
+        borderTopLeftRadius: 3,
+        borderTopRightRadius: 3,
+      },
+    },
+    MuiTab: {
+      root: {
+        textTransform: 'initial',
+        margin: `0 ${theme.spacing.unit * 2}px`,
+        minWidth: 0,
+        [theme.breakpoints.up('md')]: {
+          minWidth: 0,
+        },
+      },
+      label: {
+        fontWeight: 'normal',
+      },
+      labelContainer: {
+        padding: 0,
+        [theme.breakpoints.up('md')]: {
+          padding: 0,
+          paddingLeft: 0,
+          paddingRight: 0,
+        },
+      },
+    },
     MuiAvatar: {
       root: {
         '&.avatar--small': {
@@ -119,6 +204,28 @@ const muiTheme = {
       root: {
         '&.icon--link-inverted': linkInverted,
         '&.icon--link': linked,
+        '&.icon--white': {
+          color: white.text,
+        },
+        '&.icon--small': {
+          fontSize: 18,
+        },
+        '&.icon--bg': {
+          padding: theme.spacing.unit / 2,
+          width: 'calc(1em + 4px)',
+          height: 'calc(1em + 4px)',
+          borderRadius: '50%',
+          color: theme.palette.common.white,
+          '&.icon--red': {
+            backgroundColor: 'red',
+          },
+          '&.icon--primary': {
+            backgroundColor: primary.main,
+          },
+          '&.icon--purple': {
+            backgroundColor: 'purple',
+          },
+        },
       },
     },
     MuiTypography: {
@@ -127,11 +234,14 @@ const muiTheme = {
           ...linked,
           textDecoration: 'underline',
         },
-        '&.text--line': {
+        '&.text--inline': {
           display: 'inline-block',
         },
         '&.text--indented': {
           marginLeft: theme.spacing.unit,
+        },
+        '&.text--indented-lg': {
+          marginLeft: theme.spacing.unit * 3,
         },
         '&.text--bold': {
           fontWeight: 'bold',
@@ -142,6 +252,20 @@ const muiTheme = {
         '&.text--link-inverted': linkInverted,
         '&.text--light': {
           opacity: 0.6,
+        },
+        '&.text--icon': {
+          display: 'flex',
+          alignItems: 'flex-end',
+          '& .MuiSvgIcon-root': {
+            marginRight: theme.spacing.unit / 2,
+          },
+        },
+        '&.text--icon.text--inline': {
+          display: 'inline-flex',
+        },
+        '&.text--link-hovered:hover': {
+          cursor: 'pointer',
+          color: primary.main,
         },
       },
     },
@@ -156,13 +280,16 @@ const muiTheme = {
         '& .toolbar--narrow': {
           padding: '8px 24px',
         },
+        '&.app-bar--shaded': {
+          backgroundColor: shade.light,
+        },
       },
     },
     MuiDrawer: {
       paper: {
         minWidth: 256,
         background: '#18202c',
-        '& *': {
+        '& *, & .MuiTypography-root': {
           color: white.primary,
         },
         '& .MuiList-root': {
@@ -232,11 +359,11 @@ const muiTheme = {
     MuiButton: {
       root: {
         color: theme.palette.text.secondary,
-        '&.inverted': {
+        '&.button--inverted': {
           borderColor: white.secondary,
           color: white.text,
         },
-        '&.inverted:hover': {
+        '&.button--inverted:hover': {
           borderColor: white.primary,
           background: white.hint,
         },
@@ -244,7 +371,7 @@ const muiTheme = {
       label: {
         textTransform: 'none',
         letterSpacing: '0.25px',
-        fontWeight: 500,
+        fontWeight: 'normal',
         '& svg': {
           fontSize: 20,
         },
@@ -256,7 +383,7 @@ const muiTheme = {
         },
       },
       outlined: {
-        '&$disabled.inverted': {
+        '&$disabled.button--inverted': {
           borderColor: white.text,
           color: white.text,
         },
@@ -272,11 +399,11 @@ const muiTheme = {
         '&$disabled': {
           boxShadow: theme.shadows[0],
         },
-        '&.danger': {
+        '&.button--danger': {
           color: white.text,
           background: red.main,
         },
-        '&.danger:hover': {
+        '&.button--danger:hover': {
           background: red.dark,
         },
       },

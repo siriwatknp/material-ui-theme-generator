@@ -9,6 +9,8 @@ import withFireBaseTheme from '../decorators/withFireBaseTheme';
 
 import Typography from '@material-ui/core/Typography'
 
+import SignalCellularAlt from '@material-ui/icons/SignalCellularAlt'
+
 import { THEMES } from '../hierarchySeparators';
 
 storiesOf(`${THEMES.FIRE_BASE}|Typography`, module)
@@ -136,19 +138,29 @@ storiesOf(`${THEMES.FIRE_BASE}|Typography`, module)
   .addWithJSX('Inline', () => (
     <React.Fragment>
       <Typography
-        className={'text--line'}
+        className={'text--inline'}
         variant={'body1'}
         color={'textSecondary'}
       >
         You're viewing the Firebase demo project.
       </Typography>
       <Typography
-        className={'text--line text--link text--indented'}
+        className={'text--inline text--link text--indented'}
         variant={'body1'}
       >
         Learn more
       </Typography>
     </React.Fragment>
+  ))
+  .addWithJSX('with Icon', () => (
+    <Typography
+      className={'text--icon text--link-hovered'}
+      variant={'body1'}
+      color={'textSecondary'}
+    >
+      <SignalCellularAlt />
+      Analytic
+    </Typography>
   ))
 
 

@@ -57,7 +57,7 @@ storiesOf(`${THEMES.FIRE_BASE}|Button`, module)
   ))
   .addWithJSX('Danger', () => (
     <Button
-      className={'danger'}
+      className={'button--danger'}
       variant={'contained'}
       disabled={boolean('disabled', false)}
       disableRipple={boolean('disableRipple', false)}

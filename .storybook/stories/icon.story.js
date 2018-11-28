@@ -11,6 +11,9 @@ import Badge from '@material-ui/core/Badge'
 import IconButton from '@material-ui/core/IconButton'
 
 import Notification from '@material-ui/icons/Notifications'
+import Android from '@material-ui/icons/Android'
+import CheckCircle from '@material-ui/icons/CheckCircle'
+import ThumbUp from '@material-ui/icons/ThumbUp'
 
 import { THEMES } from '../hierarchySeparators';
 
@@ -26,6 +29,13 @@ storiesOf(`${THEMES.FIRE_BASE}|Icon`, module)
   .addWithJSX('Link Inverted', () => (
     <div style={{ display: 'inline-block', background: '#000000' }}>
       <Notification className={'icon--link-inverted'} />
+    </div>
+  ))
+  .addWithJSX('Background', () => (
+    <div style={{ display: 'inline-block' }}>
+      <Android className={'icon--bg icon--red'} />
+      <CheckCircle className={'icon--bg icon--primary'} />
+      <ThumbUp className={'icon--bg icon--purple'} />
     </div>
   ))
   .addWithJSX('with IconButton', () => (

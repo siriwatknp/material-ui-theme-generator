@@ -39,7 +39,7 @@ storiesOf(`${THEMES.FIRE_BASE}|App Bar`, module)
       <Toolbar className={cx('toolbar', 'toolbar--narrow')}>
         <Grid container spacing={16} justify={'center'} alignItems={'center'}>
           <Grid item>
-            <Typography className={'text--line'} color={'textSecondary'}>
+            <Typography className={'text--inline'} color={'textSecondary'}>
               You're viewing the Firebase demo project.
             </Typography>{' '}
             <Typography className={'text--link'}>Learn more</Typography>
@@ -104,7 +104,7 @@ storiesOf(`${THEMES.FIRE_BASE}|App Bar`, module)
         <Toolbar className={cx('toolbar', 'toolbar--narrow')}>
           <Grid container spacing={16} justify={'center'} alignItems={'center'}>
             <Grid item>
-              <Typography className={'text--line'} color={'textSecondary'}>
+              <Typography className={'text--inline'} color={'textSecondary'}>
                 You're viewing the Firebase demo project.
               </Typography>{' '}
               <Typography className={'text--link'}>Learn more</Typography>

@@ -8,6 +8,7 @@ import { withBackgroundColors, withCenteredPosition } from './decorators';
 import 'sanitize.css/sanitize.css';
 
 const req = require.context('./stories', true, /\.story\.js$/);
+const reqPages = require.context('./pages', true, /\.story\.js$/);
 
 setDefaults({
   header: false,
@@ -36,6 +37,7 @@ const loadStories = () => {
     ])
   );
 
+  reqPages.keys().forEach(filename => reqPages(filename));
   req.keys().forEach(filename => req(filename));
 };
 

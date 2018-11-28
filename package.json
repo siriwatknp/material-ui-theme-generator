@@ -2,12 +2,18 @@
   "private": true,
   "homepage": "https://create-react-app-redux.now.sh",
   "scripts": {
-    "start": "NODE_PATH=src/ react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "precommit": "pretty-quick --staged",
-    "storybook": "NODE_PATH=src/ start-storybook -p 9001 -c .storybook"
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "deploy:storybook": "storybook-to-ghpages"
+  },
+  "storybook-deployer": {
+    "gitUsername": "siriwatknp",
+    "gitEmail": "siriwatkunaporn@gmail.com",
+    "commitMessage": "Deploy Storybook to GitHub Pages"
   },
   "devDependencies": {
     "@storybook/addon-info": "^3.4.11",
@@ -15,6 +21,7 @@
     "@storybook/addon-options": "^3.4.11",
     "@storybook/addons": "^3.4.11",
     "@storybook/react": "^3.4.11",
+    "@storybook/storybook-deployer": "^2.3.0",
     "babel-eslint": "^10.0.1",
     "eslint": "^5.6.1",
     "eslint-config-airbnb": "^17.1.0",

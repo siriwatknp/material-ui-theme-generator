@@ -1,14 +1,7 @@
-import { cx } from 'emotion';
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { text, boolean } from '@storybook/addon-knobs/react';
+import { boolean } from '@storybook/addon-knobs/dist/react';
+import { cx } from 'emotion';
 
-import withRelativeParent from '../decorators/withRelativeParent';
-import withFireBaseTheme from '../decorators/withFireBaseTheme';
-// import withInstagramTheme from '../decorators/withInstagramTheme'
-
-import Typography from '@material-ui/core/Typography/Typography';
-import Button from '@material-ui/core/Button';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List/List';
@@ -30,8 +23,6 @@ import Dashboard from '@material-ui/icons/Dashboard';
 import SettingsApplications from '@material-ui/icons/SettingsApplications';
 import PhonelinkSetup from '@material-ui/icons/PhonelinkSetup';
 import ArrowRight from '@material-ui/icons/ArrowRight'
-
-import { THEMES } from '../hierarchySeparators';
 
 const categories = [
   {
@@ -55,96 +46,9 @@ const categories = [
   },
 ];
 
-storiesOf(`${THEMES.FIRE_BASE}|Drawer`, module)
-  .addDecorator(withRelativeParent({ minWidth: 300, textAlign: 'center' }))
-  .addDecorator(withFireBaseTheme)
-  .addWithJSX('No Content', () => (
-    <Drawer open={boolean('open', true)} anchor={'left'}>
-    </Drawer>
-  ))
-  .addWithJSX('with Header', () => (
-    <Drawer open={boolean('open', true)} anchor={'left'}>
-      <List>
-        <ListItem className={'drawer__header'}>
-          <img
-            alt={'logo'}
-            className={'drawer__header-logo'}
-            src={
-              'https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png'
-            }
-          />
-          <img
-            alt={'label'}
-            className={'drawer__header-label'}
-            src={
-              'https://www.gstatic.com/mobilesdk/160323_mobilesdk/images/firebase_logotype_white_18dp.svg'
-            }
-          />
-        </ListItem>
-        <ListItem button className={cx('drawer__header--actionable', 'active')}>
-          <ListItemIcon className={'drawer__subcategory-icon'}>
-            <Home />
-          </ListItemIcon>
-          <ListItemText
-            className={'drawer__subcategory-text'}
-            classes={{
-              primary: 'drawer__subcategory-text--primary',
-            }}
-          >
-            Project Overview
-          </ListItemText>
-          <ListItemSecondaryAction>
-            <IconButton className={'icon-button--separated'} disableRipple>
-              <Settings className={'icon__front icon__front--flipped'} />
-              <ArrowRight className={'icon__caret'} />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-      </List>
-    </Drawer>
-  ))
-  .addWithJSX('with a Category', () => (
-    <Drawer open={boolean('open', true)} anchor={'left'}>
-      <List>
-        {categories.map(({ id, children }) => (
-          <div className={'drawer__category-container'} key={id}>
-            <ListItem className={'drawer__category'}>
-              <ListItemText
-                className={'drawer__category-text'}
-                classes={{
-                  primary: 'drawer__category-text--primary',
-                }}
-              >
-                {id}
-              </ListItemText>
-            </ListItem>
-            {children.map(({ id: childId, icon, active }) => (
-              <ListItem
-                className={cx('drawer__subcategory', active && 'active')}
-                button
-                dense
-                key={childId}
-              >
-                <ListItemIcon className={'drawer__subcategory-icon'}>
-                  {icon}
-                </ListItemIcon>
-                <ListItemText
-                  className={'drawer__subcategory-text'}
-                  classes={{
-                    primary: 'drawer__subcategory-text--primary',
-                  }}
-                >
-                  {childId}
-                </ListItemText>
-              </ListItem>
-            ))}
-          </div>
-        ))}
-      </List>
-    </Drawer>
-  ))
-  .addWithJSX('Full Options', () => (
-    <Drawer open={boolean('open', true)} anchor={'left'}>
+const Navigator = () => {
+  return (
+    <Drawer open={boolean('open', true)} anchor={'left'} variant={'permanent'}>
       <List>
         <ListItem className={'drawer__header'}>
           <img
@@ -217,5 +121,8 @@ storiesOf(`${THEMES.FIRE_BASE}|Drawer`, module)
         ))}
       </List>
     </Drawer>
-  ))
+  );
+};
 
+
+export default Navigator;

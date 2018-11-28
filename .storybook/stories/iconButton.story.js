@@ -63,7 +63,7 @@ storiesOf(`${THEMES.FIRE_BASE}|Icon Button`, module)
   ))
   .addWithJSX('with IconButton (no padding)', () => (
     <IconButton className={'icon-button--no-pad'}>
-      <Notification />
+      <Avatar className={'avatar--small'} src={'https://lh3.googleusercontent.com/-mYNSKSzYGjw/AAAAAAAAAAI/AAAAAAAAAAA/AGDgw-iqjXfnyDj9JzvyoC6QVVqJUyEXNA/s64-c-mo/photo.jpg'} />
     </IconButton>
   ))
 
