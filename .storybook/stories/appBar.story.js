@@ -3,9 +3,11 @@ import { cx } from 'emotion';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, select } from '@storybook/addon-knobs/react';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import withRelativeParent from '../decorators/withRelativeParent';
 import withFireBaseTheme from '../decorators/withFireBaseTheme';
-// import withInstagramTheme from '../decorators/withInstagramTheme'
+import withInstagramTheme from '../decorators/withInstagramTheme'
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -16,12 +18,58 @@ import IconButton from '@material-ui/core/IconButton'
 import Avatar from '@material-ui/core/Avatar'
 import Tooltip from '@material-ui/core/Tooltip'
 import Badge from '@material-ui/core/Badge'
+import TextField from '@material-ui/core/TextField'
+import InputAdornment from '@material-ui/core/InputAdornment'
 
 import Notification from '@material-ui/icons/Notifications'
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown'
 import Help from '@material-ui/icons/Help'
+import Search from '@material-ui/icons/Search'
 
 import { THEMES } from '../hierarchySeparators';
+
+storiesOf(`${THEMES.INSTAGRAM}|App Bar`, module)
+  .addDecorator(withRelativeParent({ minWidth: 960, textAlign: 'center' }))
+  .addDecorator(withInstagramTheme)
+  .addWithJSX('Default', () => (
+    <AppBar
+      position={select(
+        'position',
+        ['fixed', 'absolute', 'static', 'sticky', 'relative'],
+        'fixed'
+      )}
+      color={'default'}
+      elevation={select('elevation', [0, 1, 2, 3, 4, 5, 6, 7, 8], 0)}
+    >
+      <Toolbar className={cx('toolbar', 'toolbar--narrow')}>
+        <Grid container alignItems={'center'}>
+          <Grid item xs className={'grid__item--left'}>
+            <FontAwesomeIcon icon={['fab', 'instagram']} />
+            <div className={'divider--vertical'} />
+            <img
+              className={'image__instagram-label'}
+              src={'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Instagram_logo.svg/1200px-Instagram_logo.svg.png'}
+            />
+          </Grid>
+          <Grid item>
+            <TextField
+              variant={'outlined'}
+              placeholder={'Search'}
+              InputProps={{
+                disableUnderline: true,
+                startAdornment: <InputAdornment position="start"><Search /></InputAdornment>
+              }}
+            />
+          </Grid>
+          <Grid item xs className={'grid__item--right'}>
+            <FontAwesomeIcon icon={['far', 'compass']} />
+            <FontAwesomeIcon icon={['far', 'heart']} />
+            <FontAwesomeIcon icon={['far', 'user']} />
+          </Grid>
+        </Grid>
+      </Toolbar>
+    </AppBar>
+  ))
 
 storiesOf(`${THEMES.FIRE_BASE}|App Bar`, module)
   .addDecorator(withRelativeParent({ minWidth: 960, textAlign: 'center' }))

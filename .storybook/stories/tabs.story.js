@@ -5,13 +5,27 @@ import { text, boolean, select } from '@storybook/addon-knobs/react';
 
 import withRelativeParent from '../decorators/withRelativeParent';
 import withFireBaseTheme from '../decorators/withFireBaseTheme';
-// import withInstagramTheme from '../decorators/withInstagramTheme'
+import withInstagramTheme from '../decorators/withInstagramTheme'
 
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
 import Tab from '@material-ui/core/Tab'
 
+import GridOnOutlined from '@material-ui/icons/GridOnOutlined'
+import BookmarkBorderOutlined from '@material-ui/icons/BookmarkBorderOutlined'
+
 import { THEMES } from '../hierarchySeparators';
+
+storiesOf(`${THEMES.INSTAGRAM}|Tabs`, module)
+  .addDecorator(withRelativeParent({ minWidth: 960, textAlign: 'center' }))
+  .addDecorator(withInstagramTheme)
+  .addWithJSX('Default', () => (
+    <Tabs value={2} centered>
+      <Tab label="Posts"  disableRipple icon={<GridOnOutlined />}/>
+      <Tab label="Saved" disableRipple icon={<BookmarkBorderOutlined />}/>
+      <Tab label="Tagged" disableRipple/>
+    </Tabs>
+  ))
 
 storiesOf(`${THEMES.FIRE_BASE}|Tabs`, module)
   .addDecorator(withRelativeParent({ minWidth: 960, textAlign: 'center' }))

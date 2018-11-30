@@ -4,6 +4,10 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { setDefaults } from '@storybook/addon-info';
 import { setOptions } from '@storybook/addon-options';
 import JSXAddon from 'storybook-addon-jsx';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faCompass, faUser, faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+
 import { withBackgroundColors, withCenteredPosition } from './decorators';
 import 'sanitize.css/sanitize.css';
 
@@ -29,13 +33,17 @@ const loadStories = () => {
   addDecorator(
     withBackgroundColors([
       {
-        value: '#ffffff',
+        value: '#fafafa',
         defaultColor: true,
+      },
+      {
+        value: '#ffffff',
       },
       { value: '#000000' },
       { value: '#a5a5a5' },
     ])
   );
+  library.add(faInstagram, faCompass, faUser, faHeart);
 
   reqPages.keys().forEach(filename => reqPages(filename));
   req.keys().forEach(filename => req(filename));

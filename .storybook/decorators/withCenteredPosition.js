@@ -7,7 +7,7 @@ const withStoryStyles = storyFn => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh',
+        minHeight: '100vh',
       }}
     >
       {storyFn()}

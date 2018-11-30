@@ -3,9 +3,7 @@ import styled, { css } from 'react-emotion';
 import { storiesOf } from '@storybook/react';
 import { text, boolean, select } from '@storybook/addon-knobs/react';
 
-import withRelativeParent from '../decorators/withRelativeParent';
 import withFireBaseTheme from '../decorators/withFireBaseTheme';
-// import withInstagramTheme from '../decorators/withInstagramTheme'
 
 import Navigator from './firebase/Navigator';
 import Header from './firebase/Header';
