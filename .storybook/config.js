@@ -33,8 +33,11 @@ const loadStories = () => {
   addDecorator(
     withBackgroundColors([
       {
-        value: '#fafafa',
+        value: 'rgb(230, 236, 240)',
         defaultColor: true,
+      },
+      {
+        value: '#fafafa',
       },
       {
         value: '#ffffff',

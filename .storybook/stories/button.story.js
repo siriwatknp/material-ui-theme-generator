@@ -5,11 +5,55 @@ import {
   boolean,
 } from '@storybook/addon-knobs/react';
 
+import Button from '@material-ui/core/Button'
+
+import Create from '@material-ui/icons/Create'
+
 import withRelativeParent from '../decorators/withRelativeParent'
 import withFireBaseTheme from '../decorators/withFireBaseTheme'
 import withInstagramTheme from '../decorators/withInstagramTheme'
-import Button from '@material-ui/core/Button'
+import withTwitterTheme from '../decorators/withTwitterTheme'
+
 import { THEMES } from '../hierarchySeparators';
+
+storiesOf(`${THEMES.TWITTER}|Button`, module)
+  .addDecorator(withRelativeParent({ minWidth: 180, textAlign: 'center' }))
+  .addDecorator(withTwitterTheme)
+  .addWithJSX('Outlined', () => (
+    <Button
+      color={'primary'}
+      variant={'outlined'}
+      disabled={boolean('disabled', false)}
+      disableRipple={boolean('disableRipple', false)}
+      fullWidth={boolean('fullWidth', false)}
+    >
+      {text('text', 'Follow')}
+    </Button>
+  ))
+  .addWithJSX('Outlined - Large', () => (
+    <Button
+      color={'primary'}
+      variant={'outlined'}
+      className={'button--large'}
+      disabled={boolean('disabled', false)}
+      disableRipple={boolean('disableRipple', false)}
+      fullWidth={boolean('fullWidth', false)}
+    >
+      {text('text', 'Edit Profile')}
+    </Button>
+  ))
+  .addWithJSX('Extended FAB', () => (
+    <Button
+      variant={'extendedFab'}
+      color={'primary'}
+      disabled={boolean('disabled', false)}
+      disableRipple={boolean('disableRipple', false)}
+      fullWidth={boolean('fullWidth', false)}
+    >
+      <Create />{' '}
+      {text('text', 'Tweet')}
+    </Button>
+  ))
 
 storiesOf(`${THEMES.FIRE_BASE}|Button`, module)
   .addDecorator(withRelativeParent({ minWidth: 180, textAlign: 'center' }))

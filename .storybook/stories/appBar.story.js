@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import withRelativeParent from '../decorators/withRelativeParent';
 import withFireBaseTheme from '../decorators/withFireBaseTheme';
 import withInstagramTheme from '../decorators/withInstagramTheme'
+import withTwitterTheme from '../decorators/withTwitterTheme'
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -20,13 +21,76 @@ import Tooltip from '@material-ui/core/Tooltip'
 import Badge from '@material-ui/core/Badge'
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
+import Tab from '@material-ui/core/Tab/Tab';
+import Tabs from '@material-ui/core/Tabs/Tabs';
 
 import Notification from '@material-ui/icons/Notifications'
 import ArrowDropDown from '@material-ui/icons/ArrowDropDown'
 import Help from '@material-ui/icons/Help'
 import Search from '@material-ui/icons/Search'
+import Home from '@material-ui/icons/Home'
+import Mail from '@material-ui/icons/Mail'
 
 import { THEMES } from '../hierarchySeparators';
+
+storiesOf(`${THEMES.TWITTER}|App Bar`, module)
+  .addDecorator(withRelativeParent({ minWidth: 1200, textAlign: 'center' }))
+  .addDecorator(withTwitterTheme)
+  .addWithJSX('Default', () => (
+    <AppBar
+      position={select(
+        'position',
+        ['fixed', 'absolute', 'static', 'sticky', 'relative'],
+        'fixed'
+      )}
+      color={'default'}
+      elevation={select('elevation', [0, 1, 2, 3, 4, 5, 6, 7, 8], 1)}
+    >
+      <Toolbar className={cx('toolbar', 'toolbar--narrow')}>
+        <Grid container alignItems={'center'} spacing={32}>
+          <Grid item xs={4} className={'grid__item--left'}>
+            <Tabs value={0} fullWidth>
+              <Tab
+                icon={
+                  <Badge className={'badge--dotted'} badgeContent={''}>
+                    <Home />
+                  </Badge>
+                }
+                classes={{ wrapper: 'tab__icon' }}
+                disableRipple
+              />
+              <Tab icon={<Search />} classes={{ wrapper: 'tab__icon' }} disableRipple />
+              <Tab
+                icon={
+                  <Badge className={'badge--number'} badgeContent={2}>
+                    <Notification />
+                  </Badge>
+                }
+                classes={{ wrapper: 'tab__icon' }}
+                disableRipple
+              />
+              <Tab icon={<Mail />} classes={{ wrapper: 'tab__icon' }} disableRipple />
+            </Tabs>
+          </Grid>
+          <Grid item xs>
+            <TextField
+              fullWidth
+              placeholder={'Find Tweets'}
+              InputProps={{
+                disableUnderline: true,
+                startAdornment: <InputAdornment position="start"><Search /></InputAdornment>
+              }}
+            />
+          </Grid>
+          <Grid item className={'grid__item--right'}>
+            <FontAwesomeIcon icon={['far', 'compass']} />
+            <FontAwesomeIcon icon={['far', 'heart']} />
+            <FontAwesomeIcon icon={['far', 'user']} />
+          </Grid>
+        </Grid>
+      </Toolbar>
+    </AppBar>
+  ))
 
 storiesOf(`${THEMES.INSTAGRAM}|App Bar`, module)
   .addDecorator(withRelativeParent({ minWidth: 960, textAlign: 'center' }))
