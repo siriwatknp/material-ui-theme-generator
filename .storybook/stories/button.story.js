@@ -8,13 +8,44 @@ import {
 import Button from '@material-ui/core/Button'
 
 import Create from '@material-ui/icons/Create'
+import BookOutlined from '@material-ui/icons/BookOutlined'
 
 import withRelativeParent from '../decorators/withRelativeParent'
 import withFireBaseTheme from '../decorators/withFireBaseTheme'
 import withInstagramTheme from '../decorators/withInstagramTheme'
 import withTwitterTheme from '../decorators/withTwitterTheme'
+import withGithubTheme from '../decorators/withGithubTheme'
 
 import { THEMES } from '../hierarchySeparators';
+
+import { classes } from 'theme/core'
+
+storiesOf(`${THEMES.GIT_HUB}|Button`, module)
+  .addDecorator(withRelativeParent({ minWidth: 180, textAlign: 'center' }))
+  .addDecorator(withGithubTheme)
+  .addWithJSX('Contained', () => (
+    <Button
+      variant={'contained'}
+      disabled={boolean('disabled', false)}
+      disableRipple={boolean('disableRipple', true)}
+      fullWidth={boolean('fullWidth', false)}
+    >
+      {text('text', 'Edit Bio')}
+    </Button>
+  ))
+  .addWithJSX('Contained (primary)', () => (
+    <Button
+      color={'primary'}
+      variant={'contained'}
+      className={'button--large'}
+      disabled={boolean('disabled', false)}
+      disableRipple={boolean('disableRipple', false)}
+      fullWidth={boolean('fullWidth', false)}
+    >
+      <BookOutlined />
+      {text('text', 'New')}
+    </Button>
+  ))
 
 storiesOf(`${THEMES.TWITTER}|Button`, module)
   .addDecorator(withRelativeParent({ minWidth: 180, textAlign: 'center' }))
@@ -81,6 +112,17 @@ storiesOf(`${THEMES.FIRE_BASE}|Button`, module)
     <Button
       color={'primary'}
       variant={'outlined'}
+      disabled={boolean('disabled', false)}
+      disableRipple={boolean('disableRipple', false)}
+      fullWidth={boolean('fullWidth', false)}
+    >
+      {text('text', 'Button')}
+    </Button>
+  ))
+  .addWithJSX('Inverted', () => (
+    <Button
+      variant={'outlined'}
+      className={classes.BUTTON.INVERTED}
       disabled={boolean('disabled', false)}
       disableRipple={boolean('disableRipple', false)}
       fullWidth={boolean('fullWidth', false)}

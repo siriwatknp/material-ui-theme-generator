@@ -7,6 +7,7 @@ import withRelativeParent from '../decorators/withRelativeParent';
 // import withFireBaseTheme from '../decorators/withFireBaseTheme';
 import withInstagramTheme from '../decorators/withInstagramTheme'
 import withTwitterTheme from '../decorators/withTwitterTheme';
+import withGithubTheme from '../decorators/withGithubTheme';
 
 import TextField from '@material-ui/core/TextField'
 import InputAdornment from '@material-ui/core/InputAdornment'
@@ -15,10 +16,22 @@ import Search from '@material-ui/icons/Search'
 
 import { THEMES } from '../hierarchySeparators';
 
+storiesOf(`${THEMES.GIT_HUB}|TextField`, module)
+  .addDecorator(withRelativeParent({ minWidth: 500, textAlign: 'center' }))
+  .addDecorator(withGithubTheme)
+  .addWithJSX('default', () => (
+    <TextField
+      placeholder={'Find a repository...'}
+      InputProps={{
+        disableUnderline: true,
+      }}
+    />
+  ));
+
 storiesOf(`${THEMES.TWITTER}|TextField`, module)
   .addDecorator(withRelativeParent({ minWidth: 500, textAlign: 'center' }))
   .addDecorator(withTwitterTheme)
-  .addWithJSX('Outlined', () => (
+  .addWithJSX('default', () => (
     <TextField
       placeholder={'Search'}
       InputProps={{

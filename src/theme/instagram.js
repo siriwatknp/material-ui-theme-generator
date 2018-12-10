@@ -51,20 +51,24 @@ const muiTheme = {
   overrides: {
     MuiTabs: {
       root: {
-        '& .MuiTab-selected .MuiTab-wrapper *': {
-          color: '#262626',
-        },
-        '& > .MuiTabs-flexContainer': {
-          borderTop: '1px solid #efefef',
-        },
+        borderTop: '1px solid #efefef',
+        overflow: 'visible',
+      },
+      fixed: {
+        overflowX: 'visible',
       },
       indicator: {
         height: 1,
-        transform: 'translateY(-52px)',
+        transform: 'translateY(-53px)',
         backgroundColor: '#262626',
       },
     },
     MuiTab: {
+      selected: {
+        '& *': {
+          color: '#262626 !important',
+        },
+      },
       root: {
         minWidth: 0,
         '&:not(:last-child)': {

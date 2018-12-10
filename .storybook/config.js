@@ -34,13 +34,13 @@ const loadStories = () => {
     withBackgroundColors([
       {
         value: 'rgb(230, 236, 240)',
-        defaultColor: true,
       },
       {
         value: '#fafafa',
       },
       {
         value: '#ffffff',
+        defaultColor: true,
       },
       { value: '#000000' },
       { value: '#a5a5a5' },

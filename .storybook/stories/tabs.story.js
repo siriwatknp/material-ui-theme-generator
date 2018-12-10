@@ -7,11 +7,14 @@ import withRelativeParent from '../decorators/withRelativeParent';
 import withFireBaseTheme from '../decorators/withFireBaseTheme';
 import withInstagramTheme from '../decorators/withInstagramTheme';
 import withTwitterTheme from '../decorators/withTwitterTheme';
+import withGithubTheme from '../decorators/withGithubTheme';
 
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Badge from '@material-ui/core/Badge';
+import Chip from '@material-ui/core/Chip';
+import Typography from '@material-ui/core/Typography';
 
 import GridOnOutlined from '@material-ui/icons/GridOnOutlined';
 import BookmarkBorderOutlined from '@material-ui/icons/BookmarkBorderOutlined';
@@ -21,6 +24,51 @@ import Notification from '@material-ui/icons/NotificationsOutlined';
 import Mail from '@material-ui/icons/MailOutline';
 
 import { THEMES } from '../hierarchySeparators';
+
+storiesOf(`${THEMES.GIT_HUB}|Tabs`, module)
+  .addDecorator(withRelativeParent({ minWidth: 600, textAlign: 'center' }))
+  .addDecorator(withGithubTheme)
+  .addWithJSX('Default', () => (
+    <Tabs value={1}>
+      <Tab label="Overview" disableRipple />
+      <Tab
+        label={
+          <React.Fragment>
+            <Typography>Repositories</Typography>
+            <Chip label={33} />
+          </React.Fragment>
+        }
+        disableRipple
+      />
+      <Tab
+        label={
+          <React.Fragment>
+            <Typography>Stars</Typography>
+            <Chip label={13} />
+          </React.Fragment>
+        }
+        disableRipple
+      />
+      <Tab
+        label={
+          <React.Fragment>
+            <Typography>Followers</Typography>
+            <Chip label={1} />
+          </React.Fragment>
+        }
+        disableRipple
+      />
+      <Tab
+        label={
+          <React.Fragment>
+            <Typography>Following</Typography>
+            <Chip label={8} />
+          </React.Fragment>
+        }
+        disableRipple
+      />
+    </Tabs>
+  ));
 
 storiesOf(`${THEMES.TWITTER}|Tabs`, module)
   .addDecorator(withRelativeParent({ minWidth: 600, textAlign: 'center' }))
