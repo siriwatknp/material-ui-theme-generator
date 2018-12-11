@@ -46,8 +46,8 @@ export const linkInverted = {
 };
 
 export default {
+  ...classes,
   drawer,
-  classes,
   muiBaseTheme,
   primary,
   red,

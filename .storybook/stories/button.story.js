@@ -1,24 +1,22 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import {
-  text,
-  boolean,
-} from '@storybook/addon-knobs/react';
+import { text, boolean } from '@storybook/addon-knobs/react';
 
-import Button from '@material-ui/core/Button'
+import atoms from 'components/atoms';
+const { Button, IconButton } = atoms;
 
-import Create from '@material-ui/icons/Create'
-import BookOutlined from '@material-ui/icons/BookOutlined'
+import Create from '@material-ui/icons/Create';
+import BookOutlined from '@material-ui/icons/BookOutlined';
 
-import withRelativeParent from '../decorators/withRelativeParent'
-import withFireBaseTheme from '../decorators/withFireBaseTheme'
-import withInstagramTheme from '../decorators/withInstagramTheme'
-import withTwitterTheme from '../decorators/withTwitterTheme'
-import withGithubTheme from '../decorators/withGithubTheme'
+import withRelativeParent from '../decorators/withRelativeParent';
+import withFireBaseTheme from '../decorators/withFireBaseTheme';
+import withInstagramTheme from '../decorators/withInstagramTheme';
+import withTwitterTheme from '../decorators/withTwitterTheme';
+import withGithubTheme from '../decorators/withGithubTheme';
 
 import { THEMES } from '../hierarchySeparators';
 
-import { classes } from 'theme/core'
+import { classes } from 'theme/core';
 
 storiesOf(`${THEMES.GIT_HUB}|Button`, module)
   .addDecorator(withRelativeParent({ minWidth: 180, textAlign: 'center' }))
@@ -45,7 +43,7 @@ storiesOf(`${THEMES.GIT_HUB}|Button`, module)
       <BookOutlined />
       {text('text', 'New')}
     </Button>
-  ))
+  ));
 
 storiesOf(`${THEMES.TWITTER}|Button`, module)
   .addDecorator(withRelativeParent({ minWidth: 180, textAlign: 'center' }))
@@ -81,10 +79,9 @@ storiesOf(`${THEMES.TWITTER}|Button`, module)
       disableRipple={boolean('disableRipple', false)}
       fullWidth={boolean('fullWidth', false)}
     >
-      <Create />{' '}
-      {text('text', 'Tweet')}
+      <Create /> {text('text', 'Tweet')}
     </Button>
-  ))
+  ));
 
 storiesOf(`${THEMES.FIRE_BASE}|Button`, module)
   .addDecorator(withRelativeParent({ minWidth: 180, textAlign: 'center' }))
@@ -119,17 +116,6 @@ storiesOf(`${THEMES.FIRE_BASE}|Button`, module)
       {text('text', 'Button')}
     </Button>
   ))
-  .addWithJSX('Inverted', () => (
-    <Button
-      variant={'outlined'}
-      className={classes.BUTTON.INVERTED}
-      disabled={boolean('disabled', false)}
-      disableRipple={boolean('disableRipple', false)}
-      fullWidth={boolean('fullWidth', false)}
-    >
-      {text('text', 'Button')}
-    </Button>
-  ))
   .addWithJSX('Primary + Contained', () => (
     <Button
       color={'primary'}
@@ -141,10 +127,10 @@ storiesOf(`${THEMES.FIRE_BASE}|Button`, module)
       {text('text', 'Button')}
     </Button>
   ))
-  .addWithJSX('Danger', () => (
+  .addWithJSX('Outlined Inverted', () => (
     <Button
-      className={'button--danger'}
-      variant={'contained'}
+      variant={'outlined'}
+      inverted={boolean('inverted', true)}
       disabled={boolean('disabled', false)}
       disableRipple={boolean('disableRipple', false)}
       fullWidth={boolean('fullWidth', false)}
@@ -152,16 +138,23 @@ storiesOf(`${THEMES.FIRE_BASE}|Button`, module)
       {text('text', 'Button')}
     </Button>
   ))
+  .addWithJSX('Danger', () => (
+    <Button
+      variant={'contained'}
+      danger={boolean('danger', true)}
+      disabled={boolean('disabled', false)}
+      disableRipple={boolean('disableRipple', false)}
+      fullWidth={boolean('fullWidth', false)}
+    >
+      {text('text', 'Button')}
+    </Button>
+  ));
 
 storiesOf(`${THEMES.INSTAGRAM}|Button`, module)
   .addDecorator(withInstagramTheme)
-  .addWithJSX('Default', () => (
-    <Button>
-      {text('text', 'Button')}
-    </Button>
-  ))
+  .addWithJSX('Default', () => <Button>{text('text', 'Button')}</Button>)
   .addWithJSX('Primary', () => (
     <Button disableRipple color={'primary'} variant={'contained'}>
       {text('text', 'Button')}
     </Button>
-  ))
+  ));

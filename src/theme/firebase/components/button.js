@@ -1,14 +1,24 @@
-export default ({ classes, linkInverted, muiBaseTheme, red, white }) => ({
+export default ({
+  attach,
+  nest,
+  BUTTON,
+  ICON,
+  ICON_BUTTON,
+  linkInverted,
+  muiBaseTheme,
+  red,
+  white,
+}) => ({
   MuiButton: {
     root: {
       color: muiBaseTheme.palette.text.secondary,
-      [classes.attach(classes.BUTTON.INVERTED)]: {
+      [attach(BUTTON.inverted)]: {
         borderColor: white.secondary,
         color: white.text,
-      },
-      [classes.attach(classes.BUTTON.INVERTED_HOVER)]: {
-        borderColor: white.primary,
-        background: white.hint,
+        '&:hover': {
+          borderColor: white.primary,
+          background: white.hint,
+        },
       },
     },
     label: {
@@ -18,15 +28,15 @@ export default ({ classes, linkInverted, muiBaseTheme, red, white }) => ({
       '& svg': {
         fontSize: 20,
       },
-      '& .icon--left': {
+      [nest(ICON.left)]: {
         marginRight: muiBaseTheme.spacing.unit,
       },
-      '& .icon--right': {
+      [nest(ICON.right)]: {
         marginLeft: muiBaseTheme.spacing.unit,
       },
     },
     outlined: {
-      '&$disabled.button--inverted': {
+      [`&$disabled.${BUTTON.inverted}`]: {
         borderColor: white.text,
         color: white.text,
       },
@@ -42,12 +52,12 @@ export default ({ classes, linkInverted, muiBaseTheme, red, white }) => ({
       '&$disabled': {
         boxShadow: muiBaseTheme.shadows[0],
       },
-      '&.button--danger': {
+      [attach(BUTTON.danger)]: {
         color: white.text,
         background: red.main,
-      },
-      '&.button--danger:hover': {
-        background: red.dark,
+        '&:hover': {
+          background: red.dark,
+        },
       },
     },
     containedPrimary: {
@@ -63,21 +73,21 @@ export default ({ classes, linkInverted, muiBaseTheme, red, white }) => ({
   MuiIconButton: {
     root: {
       padding: 8,
-      '&.icon-button--shaded': {
+      [attach(ICON_BUTTON.shaded)]: {
         backgroundColor: 'rgba(0, 0, 0, 0.08)',
       },
-      '&.icon-button--no-pad': {
+      [attach(ICON_BUTTON.noPad)]: {
         padding: 0,
       },
-      '&.icon-button--narrow-pad': {
+      [attach(ICON_BUTTON.narrowPad)]: {
         padding: 4,
       },
-      '&.icon-button--separated': {
+      [attach(ICON_BUTTON.separated)]: {
         position: 'relative',
-        '& .icon__front': {
+        [nest(ICON.front)]: {
           transition: '0.15s ease',
         },
-        '& .icon__caret': {
+        [nest(ICON.caret)]: {
           transition: '0.15s ease',
           position: 'absolute',
           visibility: 'hidden',
@@ -85,20 +95,20 @@ export default ({ classes, linkInverted, muiBaseTheme, red, white }) => ({
           right: 2,
         },
         '&:hover': {
-          '& .icon__front': {
+          [nest(ICON.front)]: {
             transform: 'translateX(-6px)',
           },
-          '& .icon__front--flipped': {
+          [nest(ICON.frontFlipped)]: {
             transform: 'translateX(-6px) rotateZ(-20deg)',
           },
-          '& .icon__caret': {
+          [nest(ICON.caret)]: {
             visibility: 'visible',
             opacity: 1,
             right: -4,
           },
         },
       },
-      '&.icon-button--link-inverted': {
+      [attach(ICON_BUTTON.linkInverted)]: {
         '& svg': linkInverted,
         '&:hover': {
           '& svg': {
