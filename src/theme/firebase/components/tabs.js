@@ -3,7 +3,7 @@ export default ({ muiBaseTheme }) => ({
     root: {
       marginLeft: muiBaseTheme.spacing.unit,
       '&.tabs--inverted': {
-        '& .MuiTabs-indicator': {
+        '& .tabs__indicator': {
           backgroundColor: muiBaseTheme.palette.common.white,
         },
       },

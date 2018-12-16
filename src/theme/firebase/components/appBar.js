@@ -1,16 +1,16 @@
-export default ({ muiBaseTheme, shade }) => ({
+export default ({ muiBaseTheme, attach, nest, APP_BAR, TOOLBAR, shade }) => ({
   MuiAppBar: {
     colorDefault: {
       backgroundColor: muiBaseTheme.palette.common.white,
     },
     root: {
-      '& .toolbar': {
+      [nest(TOOLBAR.root)]: {
         minHeight: 'auto',
       },
-      '& .toolbar--narrow': {
+      [nest(TOOLBAR.narrow)]: {
         padding: '8px 24px',
       },
-      '&.app-bar--shaded': {
+      [attach(APP_BAR.shaded)]: {
         backgroundColor: shade.light,
       },
     },

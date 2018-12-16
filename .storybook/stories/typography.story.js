@@ -7,11 +7,13 @@ import withRelativeParent from '../decorators/withRelativeParent';
 import withFireBaseTheme from '../decorators/withFireBaseTheme';
 // import withInstagramTheme from '../decorators/withInstagramTheme'
 
-import Typography from '@material-ui/core/Typography'
-
 import SignalCellularAlt from '@material-ui/icons/SignalCellularAlt'
 
+import atoms from 'components/atoms'
+
 import { THEMES } from '../hierarchySeparators';
+
+const { Typography } = atoms;
 
 storiesOf(`${THEMES.FIRE_BASE}|Typography`, module)
   .addDecorator(withRelativeParent({ minWidth: 500, textAlign: 'left' }))
@@ -108,7 +110,7 @@ storiesOf(`${THEMES.FIRE_BASE}|Typography`, module)
   ))
   .addWithJSX('Link', () => (
     <Typography
-      className={'text--link'}
+      link
       variant={select('variant', ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2', 'caption' ,'button', 'overline'], 'body1')}
       color={select('color', ['default', 'inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error'], 'default')}
     >
@@ -117,7 +119,7 @@ storiesOf(`${THEMES.FIRE_BASE}|Typography`, module)
   ))
   .addWithJSX('Bold', () => (
     <Typography
-      className={'text--bold'}
+      bold
       variant={select('variant', ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2', 'caption' ,'button', 'overline'], 'body1')}
       color={select('color', ['default', 'inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error'], 'default')}
     >
@@ -127,7 +129,7 @@ storiesOf(`${THEMES.FIRE_BASE}|Typography`, module)
   .addWithJSX('Inverted', () => (
     <div style={{ background: 'rgba(0,0,0,0.87)'}}>
       <Typography
-        className={'text--inverted'}
+        inverted
         variant={select('variant', ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'subtitle1', 'subtitle2', 'body1', 'body2', 'caption' ,'button', 'overline'], 'body1')}
         color={select('color', ['default', 'inherit', 'primary', 'secondary', 'textPrimary', 'textSecondary', 'error'], 'default')}
       >
@@ -138,14 +140,16 @@ storiesOf(`${THEMES.FIRE_BASE}|Typography`, module)
   .addWithJSX('Inline', () => (
     <React.Fragment>
       <Typography
-        className={'text--inline'}
+        inline
         variant={'body1'}
         color={'textSecondary'}
       >
         You're viewing the Firebase demo project.
       </Typography>
       <Typography
-        className={'text--inline text--link text--indented'}
+        inline
+        link
+        indented
         variant={'body1'}
       >
         Learn more

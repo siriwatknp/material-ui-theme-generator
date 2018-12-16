@@ -1,14 +1,4 @@
-export default ({
-  attach,
-  nest,
-  BUTTON,
-  ICON,
-  ICON_BUTTON,
-  linkInverted,
-  muiBaseTheme,
-  red,
-  white,
-}) => ({
+export default ({ attach, nest, BUTTON, ICON, muiBaseTheme, red, white }) => ({
   MuiButton: {
     root: {
       color: muiBaseTheme.palette.text.secondary,
@@ -67,54 +57,6 @@ export default ({
       boxShadow: muiBaseTheme.shadows[2],
       '&:active': {
         boxShadow: muiBaseTheme.shadows[4],
-      },
-    },
-  },
-  MuiIconButton: {
-    root: {
-      padding: 8,
-      [attach(ICON_BUTTON.shaded)]: {
-        backgroundColor: 'rgba(0, 0, 0, 0.08)',
-      },
-      [attach(ICON_BUTTON.noPad)]: {
-        padding: 0,
-      },
-      [attach(ICON_BUTTON.narrowPad)]: {
-        padding: 4,
-      },
-      [attach(ICON_BUTTON.separated)]: {
-        position: 'relative',
-        [nest(ICON.front)]: {
-          transition: '0.15s ease',
-        },
-        [nest(ICON.caret)]: {
-          transition: '0.15s ease',
-          position: 'absolute',
-          visibility: 'hidden',
-          opacity: 0,
-          right: 2,
-        },
-        '&:hover': {
-          [nest(ICON.front)]: {
-            transform: 'translateX(-6px)',
-          },
-          [nest(ICON.frontFlipped)]: {
-            transform: 'translateX(-6px) rotateZ(-20deg)',
-          },
-          [nest(ICON.caret)]: {
-            visibility: 'visible',
-            opacity: 1,
-            right: -4,
-          },
-        },
-      },
-      [attach(ICON_BUTTON.linkInverted)]: {
-        '& svg': linkInverted,
-        '&:hover': {
-          '& svg': {
-            color: muiBaseTheme.palette.common.white,
-          },
-        },
       },
     },
   },

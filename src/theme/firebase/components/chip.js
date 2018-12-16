@@ -3,22 +3,22 @@ export default ({ muiBaseTheme, white }) => ({
     root: {
       '&.chip--inverted': {
         backgroundColor: 'rgba(0,0,0,0.08)',
-        '& .MuiChip-label': {
+        '& .chip__label': {
           color: white.primary,
         },
         '&:hover, &:active, &:focus': {
           backgroundColor: muiBaseTheme.palette.divider,
-          '& .MuiChip-label': {
+          '& .chip__label': {
             color: white.text,
           },
         },
       },
       '&.chip--narrow': {
-        '& .MuiChip-icon': {
+        '& .chip__icon': {
           marginLeft: 2,
           marginRight: -muiBaseTheme.spacing.unit / 2,
         },
-        '& .MuiChip-label': {
+        '& .chip__Zlabel': {
           fontSize: 14,
         },
       },

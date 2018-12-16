@@ -10,7 +10,6 @@ import withTwitterTheme from '../decorators/withTwitterTheme';
 import withGithubTheme from '../decorators/withGithubTheme';
 
 import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Badge from '@material-ui/core/Badge';
 import Chip from '@material-ui/core/Chip';
@@ -23,7 +22,11 @@ import Search from '@material-ui/icons/Search';
 import Notification from '@material-ui/icons/NotificationsOutlined';
 import Mail from '@material-ui/icons/MailOutline';
 
+import molecules from 'components/molecules';
+
 import { THEMES } from '../hierarchySeparators';
+
+const { Tabs } = molecules;
 
 storiesOf(`${THEMES.GIT_HUB}|Tabs`, module)
   .addDecorator(withRelativeParent({ minWidth: 600, textAlign: 'center' }))
@@ -131,7 +134,7 @@ storiesOf(`${THEMES.FIRE_BASE}|Tabs`, module)
   ))
   .addWithJSX('Inverted', () => (
     <AppBar position={'static'} elevation={2}>
-      <Tabs value={0} className={'tabs--inverted'}>
+      <Tabs value={0} inverted>
         <Tab label="Users" disableRipple />
         <Tab label="Sign-in method" disableRipple />
         <Tab label="Templates" disableRipple />

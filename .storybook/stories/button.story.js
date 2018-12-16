@@ -16,8 +16,6 @@ import withGithubTheme from '../decorators/withGithubTheme';
 
 import { THEMES } from '../hierarchySeparators';
 
-import { classes } from 'theme/core';
-
 storiesOf(`${THEMES.GIT_HUB}|Button`, module)
   .addDecorator(withRelativeParent({ minWidth: 180, textAlign: 'center' }))
   .addDecorator(withGithubTheme)

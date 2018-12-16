@@ -5,8 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import Tab from '@material-ui/core/Tab';
 
-import Help from '@material-ui/icons/Help';
-
 import atoms from 'components/atoms';
 import molecules from 'components/molecules';
 

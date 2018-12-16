@@ -7,13 +7,11 @@ import withRelativeParent from '../decorators/withRelativeParent';
 import withFireBaseTheme from '../decorators/withFireBaseTheme';
 // import withInstagramTheme from '../decorators/withInstagramTheme'
 
-import AppBar from '@material-ui/core/AppBar';
-import Chip from '@material-ui/core/Chip';
-
-import Android from '@material-ui/icons/Android';
-import Apps from '@material-ui/icons/Apps'
+import atoms from 'components/atoms';
 
 import { THEMES } from '../hierarchySeparators';
+
+const { Chip, Icon } = atoms;
 
 storiesOf(`${THEMES.FIRE_BASE}|Chip`, module)
   .addDecorator(withRelativeParent({ minWidth: 960, textAlign: 'center' }))
@@ -21,15 +19,15 @@ storiesOf(`${THEMES.FIRE_BASE}|Chip`, module)
   .addWithJSX('Inverted', () => (
     <div style={{ background: '#039be5', padding: 24 }}>
       <Chip
-        className={'chip--inverted'}
+        inverted
         label="2 apps"
-        icon={<Apps className={'icon--white'} />}
+        icon={<Icon white>apps</Icon>}
         onClick={() => console.log('clicked')}
       />
       <Chip
-        className={'chip--inverted'}
+        inverted
         label="Flood-It! Android"
-        icon={<Android className={'icon--bg icon--purple'} />}
+        icon={<Icon contained purple>android</Icon>}
         onClick={() => console.log('clicked')}
       />
     </div>

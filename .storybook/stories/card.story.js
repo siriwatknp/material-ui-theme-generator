@@ -7,18 +7,17 @@ import withFireBaseTheme from '../decorators/withFireBaseTheme';
 // import withInstagramTheme from '../decorators/withInstagramTheme'
 
 import Divider from '@material-ui/core/Divider';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import CardActions from '@material-ui/core/CardActions';
 
 import Add from '@material-ui/icons/Add';
-import Explore from '@material-ui/icons/Explore';
 
+import atoms from 'components/atoms';
+import molecules from 'components/molecules'
 import { THEMES } from '../hierarchySeparators';
+
+const { Icon } = atoms;
+const { Card, CardMedia, CardActions, CardContent, CardActionArea } = molecules;
 
 const bull = <span>•</span>;
 
@@ -46,7 +45,7 @@ storiesOf(`${THEMES.FIRE_BASE}|Card`, module)
         </Typography>
       </CardContent>
       <Divider />
-      <CardActions className={'card__actions--contained'}>
+      <CardActions contained>
         <Button size="large" fullWidth>
           Learn More
         </Button>
@@ -54,7 +53,7 @@ storiesOf(`${THEMES.FIRE_BASE}|Card`, module)
     </Card>
   ))
   .addWithJSX('Link Card', () => (
-    <Card className={'card__root--actionable'}>
+    <Card actionable>
       <CardActionArea>
         <CardContent>
           <Add />
@@ -62,22 +61,22 @@ storiesOf(`${THEMES.FIRE_BASE}|Card`, module)
         </CardContent>
       </CardActionArea>
       <Divider />
-      <CardActions className={'card__actions--contained'}>
+      <CardActions contained>
         <Button size="large" color={'primary'} fullWidth>
-          <Explore className={'icon--left'} />
+          <Icon left>explore</Icon>
           Explore a demo project
         </Button>
       </CardActions>
     </Card>
   ))
   .addWithJSX('Media Card (space-grey)', () => (
-    <Card className={'card__root--color space-grey'}>
+    <Card contained spaceGrey>
       <CardActionArea>
         <CardMedia
           image={
             'https://www.gstatic.com/mobilesdk/170215_mobilesdk/discoveryCards/2x/functions.png'
           }
-          className={'card__media--wide-screen'}
+          wideScreen
         />
         <CardContent>
           <Typography variant="h5" component="h2" gutterBottom>
@@ -91,13 +90,13 @@ storiesOf(`${THEMES.FIRE_BASE}|Card`, module)
     </Card>
   ))
   .addWithJSX('Media Card (dark-blue)', () => (
-    <Card className={'card__root--color dark-blue'}>
+    <Card contained darkBlue>
       <CardActionArea>
         <CardMedia
           image={
             'https://www.gstatic.com/mobilesdk/160505_mobilesdk/discoverycards/2x/hosting.png'
           }
-          className={'card__media--wide-screen'}
+          wideScreen
         />
         <CardContent>
           <Typography variant="h5" component="h2" gutterBottom>

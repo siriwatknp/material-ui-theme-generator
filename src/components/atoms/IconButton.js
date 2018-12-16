@@ -3,7 +3,7 @@ import cx from 'classnames';
 import MuiIconButton from '@material-ui/core/IconButton';
 import { ICON_BUTTON } from 'theme/core';
 
-const Button = ({
+const IconButton = ({
   className,
   shaded,
   noPad,
@@ -14,6 +14,7 @@ const Button = ({
 }) => (
   <MuiIconButton
     className={cx(
+      ICON_BUTTON.root,
       className,
       shaded && ICON_BUTTON.shaded,
       noPad && ICON_BUTTON.noPad,
@@ -25,4 +26,4 @@ const Button = ({
   />
 );
 
-export default Button;
+export default IconButton;

@@ -8,16 +8,14 @@ import withFireBaseTheme from '../decorators/withFireBaseTheme';
 import withTwitterTheme from '../decorators/withTwitterTheme';
 // import withInstagramTheme from '../decorators/withInstagramTheme'
 
-import Badge from '@material-ui/core/Badge'
-import IconButton from '@material-ui/core/IconButton'
+import Notification from '@material-ui/icons/Notifications';
+import Home from '@material-ui/icons/Home';
 
-import Notification from '@material-ui/icons/Notifications'
-import Android from '@material-ui/icons/Android'
-import CheckCircle from '@material-ui/icons/CheckCircle'
-import ThumbUp from '@material-ui/icons/ThumbUp'
-import Home from '@material-ui/icons/Home'
+import atoms from 'components/atoms';
 
 import { THEMES } from '../hierarchySeparators';
+
+const { Badge, IconButton, Icon } = atoms;
 
 storiesOf(`${THEMES.TWITTER}|Icon`, module)
   .addDecorator(withRelativeParent({ minWidth: 960, textAlign: 'center' }))
@@ -33,37 +31,40 @@ storiesOf(`${THEMES.TWITTER}|Icon`, module)
     </Badge>
   ));
 
-
 storiesOf(`${THEMES.FIRE_BASE}|Icon`, module)
   .addDecorator(withRelativeParent({ minWidth: 960, textAlign: 'center' }))
   .addDecorator(withFireBaseTheme)
   .addWithJSX('Default', () => (
-    <Notification color={select('color', ['default', 'primary', 'secondary', 'action', 'error', 'inherit'], 'default')} />
+    <Icon
+      // color={select(
+      //   'color',
+      //   ['default', 'primary', 'secondary', 'action', 'error', 'inherit'],
+      //   'default'
+      // )}
+    >
+      notifications
+    </Icon>
   ))
-  .addWithJSX('Link', () => (
-    <Notification className={'icon--link'} />
-  ))
+  .addWithJSX('Link', () => <Notification className={'icon--link'} />)
   .addWithJSX('Link Inverted', () => (
     <div style={{ display: 'inline-block', background: '#000000' }}>
-      <Notification className={'icon--link-inverted'} />
+      <Icon linkInverted>notifications</Icon>
     </div>
   ))
   .addWithJSX('Background', () => (
     <div style={{ display: 'inline-block' }}>
-      <Android className={'icon--bg icon--red'} />
-      <CheckCircle className={'icon--bg icon--primary'} />
-      <ThumbUp className={'icon--bg icon--purple'} />
+      <Icon contained red >android</Icon>
+      <Icon contained primary >check_circle</Icon>
+      <Icon contained purple >thumb_up</Icon>
     </div>
   ))
   .addWithJSX('with IconButton', () => (
-    <IconButton className={'icon-button--narrow-pad'}>
-      <Notification
-        className={'icon--link'}
-      />
+    <IconButton narrowPad>
+      <Icon link>notifications</Icon>
     </IconButton>
   ))
   .addWithJSX('with Badge', () => (
-    <Badge className={'badge--dotted'} badgeContent={''}>
-      <Notification />
+    <Badge dotted badgeContent={''}>
+      <Icon link>notifications</Icon>
     </Badge>
   ));
