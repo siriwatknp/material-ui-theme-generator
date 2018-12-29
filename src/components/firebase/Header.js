@@ -5,8 +5,8 @@ import Grid from '@material-ui/core/Grid';
 import Tooltip from '@material-ui/core/Tooltip';
 import Tab from '@material-ui/core/Tab';
 
-import atoms from 'components/atoms';
-import molecules from 'components/molecules';
+import atoms from '../atoms';
+import molecules from '../molecules';
 
 const { Toolbar, Typography, Icon, IconButton, Badge, Button, Avatar } = atoms;
 const { Tabs } = molecules;

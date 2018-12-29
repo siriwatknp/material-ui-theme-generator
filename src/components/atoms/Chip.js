@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import MuiChip from '@material-ui/core/Chip';
-import { CHIP } from 'theme/core';
+import { CHIP } from '../../theme/core';
 
 const Chip = ({ className, inverted, ...props }) => (
   <MuiChip

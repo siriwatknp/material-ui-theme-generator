@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import MuiListItemIcon from '@material-ui/core/ListItemIcon';
-import { LIST_ITEM_ICON } from 'theme/core';
+import { LIST_ITEM_ICON } from '../../theme/core';
 
 const ListItemIcon = ({ className, children, subcategory, ...props }) => (
   <MuiListItemIcon

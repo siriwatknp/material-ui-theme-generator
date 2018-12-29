@@ -1,11 +1,17 @@
 import React from 'react';
 import cx from 'classnames';
 import MuiAvatar from '@material-ui/core/Avatar';
-import { AVATAR } from 'theme/core';
+import { AVATAR } from '../../theme/core';
 
-const Avatar = ({ className, small, ...props }) => (
+const Avatar = ({ className, small, ultraLarge, ...props }) => (
   <MuiAvatar
-    className={cx(AVATAR.root, className, small && AVATAR.small)}
+    src={'http://i.pravatar.cc/300'}
+    className={cx(
+      AVATAR.root,
+      className,
+      small && AVATAR.small,
+      ultraLarge && AVATAR.ultraLarge
+    )}
     {...props}
   />
 );

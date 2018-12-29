@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import MuiCard from '@material-ui/core/Card';
-import { CARD } from 'theme/core';
+import { CARD } from '../../theme/core';
 
 const Card = ({
   className,

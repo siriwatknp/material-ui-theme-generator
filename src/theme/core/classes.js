@@ -1,7 +1,16 @@
-import convertToMui from './muiConverter';
+export const attach = (...classNames) => `&.${classNames.join('.')}`;
+export const nest = (...classNames) => `& .${classNames.join('.')}`;
 
-export const attach = className => `&.${className}`;
-export const nest = className => `& .${className}`;
+export const APP_BAR = {
+  root: 'app-bar__root',
+  shaded: 'app-bar--shaded',
+};
+
+export const AVATAR = {
+  root: 'avatar__root',
+  small: 'avatar--small',
+  ultraLarge: 'avatar--ultra-large',
+};
 
 export const BADGE = {
   root: 'badge__root',
@@ -12,66 +21,6 @@ export const BUTTON = {
   root: 'button__root',
   inverted: 'button--inverted',
   danger: 'button--danger',
-};
-
-export const ICON_BUTTON = {
-  root: 'icon-button__root',
-  shaded: 'icon-button--shaded',
-  noPad: 'icon-button--no-pad',
-  narrowPad: 'icon-button--narrow-pad',
-  separated: 'icon-button--separated',
-  linkInverted: 'icon-button--link-inverted',
-};
-
-export const ICON = {
-  root: 'icon__root',
-  left: 'icon--left',
-  right: 'icon--right',
-  front: 'icon__front',
-  caret: 'icon__caret',
-  frontFlipped: 'icon__front--flipped',
-  link: 'icon--link',
-  linkInverted: 'icon--link-inverted',
-  contained: 'icon--contained',
-  purple: 'icon--purple',
-  white: 'icon--white',
-  red: 'icon--red',
-  primary: 'icon--primary',
-  small: 'icon--small',
-};
-
-export const AVATAR = {
-  root: 'avatar__root',
-  small: 'avatar--small',
-};
-
-export const TOOLBAR = {
-  root: 'toolbar__root',
-  narrow: 'toolbar--narrow',
-};
-
-export const APP_BAR = {
-  root: 'app-bar__root',
-  shaded: 'app-bar--shaded',
-};
-
-export const TEXT = {
-  root: 'text__root',
-  inline: 'text--inline',
-  link: 'text--link',
-  linkInverted: 'text--link-inverted',
-  icon: 'text--icon',
-  inverted: 'text--inverted',
-  indented: 'text--indented',
-  light: 'text--light',
-};
-
-export const CHIP = {
-  root: 'chip__root',
-  label: 'chip__label',
-  narrow: 'chip--narrow',
-  icon: 'chip__icon',
-  inverted: 'chip--inverted',
 };
 
 export const CARD = {
@@ -101,8 +50,52 @@ export const CARD_MEDIA = {
   wideScreen: 'card-media--wide-screen',
 };
 
+export const CHIP = {
+  root: 'chip__root',
+  label: 'chip__label',
+  narrow: 'chip--narrow',
+  icon: 'chip__icon',
+  inverted: 'chip--inverted',
+};
+
 export const DRAWER = {
   root: 'drawer__root',
+};
+
+export const DIVIDER = {
+  root: 'divider__root',
+  vertical: 'divider--vertical',
+};
+
+export const GRID = {
+  root: 'grid__root',
+  flex: 'grid--flex',
+};
+
+export const ICON_BUTTON = {
+  root: 'icon-button__root',
+  shaded: 'icon-button--shaded',
+  noPad: 'icon-button--no-pad',
+  narrowPad: 'icon-button--narrow-pad',
+  separated: 'icon-button--separated',
+  linkInverted: 'icon-button--link-inverted',
+};
+
+export const ICON = {
+  root: 'icon__root',
+  left: 'icon--left',
+  right: 'icon--right',
+  front: 'icon__front',
+  caret: 'icon__caret',
+  frontFlipped: 'icon__front--flipped',
+  link: 'icon--link',
+  linkInverted: 'icon--link-inverted',
+  contained: 'icon--contained',
+  purple: 'icon--purple',
+  white: 'icon--white',
+  red: 'icon--red',
+  primary: 'icon--primary',
+  small: 'icon--small',
 };
 
 export const LIST = {
@@ -132,14 +125,49 @@ export const LIST_ITEM_ICON = {
   subcategory: 'list-item-icon__subcategory',
 };
 
+export const NOTCHED_OUTLINE = {
+  root: 'notched-outline__root',
+  focused: 'notched-outline--focused',
+};
+
+export const OUTLINED_INPUT = {
+  root: 'outlined-input__root',
+  focused: 'outlined-input--notched-outline',
+};
+
 export const TABS = {
   root: 'tabs__root',
   inverted: 'tabs--inverted',
   indicator: 'tabs__indicator',
 };
 
-// export default convertToMui(classes);
+export const TAB = {
+  root: 'tab__root',
+  label: 'tab__label',
+  selected: 'tab--selected',
+};
+
+export const TEXT = {
+  root: 'text__root',
+  bold: 'text--bold',
+  inline: 'text--inline',
+  link: 'text--link',
+  linkInverted: 'text--link-inverted',
+  icon: 'text--icon',
+  inverted: 'text--inverted',
+  indented: 'text--indented',
+  indentedLg: 'text--indented-lg',
+  light: 'text--light',
+  lightWeight: 'text--light-weight',
+};
+
+export const TOOLBAR = {
+  root: 'toolbar__root',
+  narrow: 'toolbar--narrow',
+};
+
 export default {
+  AVATAR,
   APP_BAR,
   BADGE,
   BUTTON,
@@ -148,13 +176,17 @@ export default {
   CARD_MEDIA,
   CARD_CONTENT,
   CARD_ACTION_AREA,
+  DIVIDER,
+  GRID,
   LIST,
   LIST_ITEM,
   LIST_ITEM_TEXT,
   LIST_ITEM_ICON,
+  NOTCHED_OUTLINE,
   ICON,
   ICON_BUTTON,
   TABS,
+  TAB,
   TOOLBAR,
   TEXT,
   attach,

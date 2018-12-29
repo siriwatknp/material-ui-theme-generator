@@ -5,17 +5,9 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { setDefaults } from '@storybook/addon-info';
 import { setOptions } from '@storybook/addon-options';
 import JSXAddon from 'storybook-addon-jsx';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faCompass,
-  faUser,
-  faHeart,
-} from '@fortawesome/free-regular-svg-icons';
-import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import CssBaseline from '@material-ui/core/CssBaseline'
 
 import { withBackgroundColors, withCenteredPosition } from './decorators';
-import 'sanitize.css/sanitize.css';
-import './material-icon.css';
 
 const req = require.context('./stories', true, /\.story\.js$/);
 const reqPages = require.context('./pages', true, /\.story\.js$/);
@@ -44,10 +36,17 @@ const withMaterialIcons = story => (
     {story()}
   </React.Fragment>
 );
+const withMaterialCSSBaseline = story => (
+  <React.Fragment>
+    <CssBaseline />
+    {story()}
+  </React.Fragment>
+);
 
 const loadStories = () => {
   addDecorator(withKnobs);
   addDecorator(withMaterialIcons);
+  addDecorator(withMaterialCSSBaseline);
   addDecorator(withCenteredPosition);
   addDecorator(
     withBackgroundColors([
@@ -65,8 +64,6 @@ const loadStories = () => {
       { value: '#a5a5a5' },
     ])
   );
-  library.add(faInstagram, faCompass, faUser, faHeart);
-
   reqPages.keys().forEach(filename => reqPages(filename));
   req.keys().forEach(filename => req(filename));
 };

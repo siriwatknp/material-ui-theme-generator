@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import MuiListItemText from '@material-ui/core/ListItemText';
-import { LIST_ITEM_TEXT } from 'theme/core';
+import { LIST_ITEM_TEXT } from '../../theme/core';
 
 const ListItemText = ({
   className,

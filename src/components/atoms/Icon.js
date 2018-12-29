@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import MuiIcon from '@material-ui/core/Icon';
-import { ICON } from 'theme/core';
+import { ICON } from '../../theme/core';
 
 const Icon = ({
   className,
@@ -10,6 +10,7 @@ const Icon = ({
   front,
   frontFlipped,
   caret,
+  link,
   linkInverted,
   contained,
   white,
@@ -23,6 +24,7 @@ const Icon = ({
       left && ICON.left,
       right && ICON.right,
       front && ICON.front,
+      link && ICON.link,
       frontFlipped && ICON.frontFlipped,
       linkInverted && ICON.linkInverted,
       caret && ICON.caret,

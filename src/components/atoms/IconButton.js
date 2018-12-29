@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import MuiIconButton from '@material-ui/core/IconButton';
-import { ICON_BUTTON } from 'theme/core';
+import { ICON_BUTTON } from '../../theme/core';
 
 const IconButton = ({
   className,

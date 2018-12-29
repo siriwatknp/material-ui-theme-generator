@@ -1,42 +1,51 @@
-export default ({ linked, linkInverted, muiBaseTheme, primary }) => ({
+export default ({
+  attach,
+  nest,
+  linked,
+  linkInverted,
+  muiBaseTheme,
+  primary,
+  TEXT,
+  ICON,
+}) => ({
   MuiTypography: {
     root: {
-      '&.text--link': {
+      [attach(TEXT.link)]: {
         ...linked,
         textDecoration: 'underline',
       },
-      '&.text--inline': {
+      [`${attach(TEXT.link)}:hover`]: {
+        cursor: 'pointer',
+        color: primary.main,
+      },
+      [attach(TEXT.inline)]: {
         display: 'inline-block',
       },
-      '&.text--indented': {
+      [attach(TEXT.indented)]: {
         marginLeft: muiBaseTheme.spacing.unit,
       },
-      '&.text--indented-lg': {
+      [attach(TEXT.indentedLg)]: {
         marginLeft: muiBaseTheme.spacing.unit * 3,
       },
-      '&.text--bold': {
+      [attach(TEXT.bold)]: {
         fontWeight: 'bold',
       },
-      '&.text--inverted': {
+      [attach(TEXT.inverted)]: {
         color: muiBaseTheme.palette.common.white,
       },
-      '&.text--link-inverted': linkInverted,
-      '&.text--light': {
+      [attach(TEXT.linkInverted)]: linkInverted,
+      [attach(TEXT.light)]: {
         opacity: 0.6,
       },
-      '&.text--icon': {
+      [attach(TEXT.icon)]: {
         display: 'flex',
         alignItems: 'flex-end',
-        '& .MuiSvgIcon-root': {
+        [nest(ICON.root)]: {
           marginRight: muiBaseTheme.spacing.unit / 2,
         },
       },
-      '&.text--icon.text--inline': {
+      [attach(TEXT.icon, TEXT.inline)]: {
         display: 'inline-flex',
-      },
-      '&.text--link-hovered:hover': {
-        cursor: 'pointer',
-        color: primary.main,
       },
     },
   },

@@ -2,8 +2,8 @@ import React from 'react';
 
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
 
-import atoms from 'components/atoms';
-import molecules from 'components/molecules';
+import atoms from '../atoms';
+import molecules from '../molecules';
 
 const { IconButton, Icon } = atoms;
 const { Drawer, List, ListItem, ListItemIcon, ListItemText } = molecules;

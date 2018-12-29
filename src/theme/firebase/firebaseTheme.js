@@ -10,8 +10,6 @@ req.keys().forEach(filename => {
   };
 });
 
-console.log('overrides', overrides)
-
 const muiTheme = {
   typography: {
     useNextVariants: true,

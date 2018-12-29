@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import MuiDrawer from '@material-ui/core/Drawer';
-import { DRAWER } from 'theme/core';
+import { DRAWER } from '../../theme/core';
 
 const Drawer = ({
   className,

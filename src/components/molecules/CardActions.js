@@ -1,7 +1,7 @@
 import React from 'react';
 import cx from 'classnames';
 import MuiCardActions from '@material-ui/core/CardActions';
-import { CARD_ACTIONS } from 'theme/core';
+import { CARD_ACTIONS } from '../../theme/core';
 
 const CardActions = ({ className, contained, ...props }) => (
   <MuiCardActions

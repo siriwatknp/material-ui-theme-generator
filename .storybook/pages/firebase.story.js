@@ -3,8 +3,6 @@ import { storiesOf } from '@storybook/react';
 
 import AuthenPage from 'pages/firebase/AuthenPage';
 
-import withFireBaseTheme from '../decorators/withFireBaseTheme';
-
 const Container = ({ children }) => (
   <div
     style={{
@@ -18,7 +16,6 @@ const Container = ({ children }) => (
 );
 
 storiesOf('Pages|Firebase', module)
-  .addDecorator(withFireBaseTheme)
   .addWithJSX('Authentication Page', () => (
     <Container>
       <AuthenPage />
