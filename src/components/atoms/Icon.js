@@ -15,6 +15,8 @@ const Icon = ({
   contained,
   white,
   purple,
+  text,
+  light,
   ...props
 }) => (
   <MuiIcon
@@ -31,6 +33,8 @@ const Icon = ({
       contained && ICON.contained,
       white && ICON.white,
       purple && ICON.purple,
+      text && ICON.text,
+      light && ICON.light
     )}
     {...props}
   />

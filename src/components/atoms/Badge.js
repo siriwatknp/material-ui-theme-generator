@@ -3,9 +3,17 @@ import cx from 'classnames';
 import MuiBadge from '@material-ui/core/Badge';
 import { BADGE } from '../../theme/core';
 
-const Badge = ({ className, dotted, children, ...props }) => (
+const Badge = ({ className, dotted, number, children, ...props }) => (
   <MuiBadge
-    className={cx(BADGE.root, className, dotted && BADGE.dotted)}
+    className={cx(
+      BADGE.root,
+      className,
+      dotted && BADGE.dotted,
+      number && BADGE.number
+    )}
+    classes={{
+      badge: BADGE.badge,
+    }}
     {...props}
   >
     {children}

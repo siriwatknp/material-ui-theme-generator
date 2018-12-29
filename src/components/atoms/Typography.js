@@ -12,8 +12,12 @@ const Typography = ({
   icon,
   inverted,
   indented,
+  indentedLarge,
   light,
   lightWeight,
+  primary,
+  secondary,
+  tertiary,
   ...props
 }) => (
   <MuiTypography
@@ -27,8 +31,12 @@ const Typography = ({
       linkInverted && TEXT.linkInverted,
       inverted && TEXT.inverted,
       indented && TEXT.indented,
+      indentedLarge && TEXT.indentedLarge,
       light && TEXT.light,
-      lightWeight && TEXT.lightWeight
+      lightWeight && TEXT.lightWeight,
+      primary && TEXT.primary,
+      secondary && TEXT.secondary,
+      tertiary && TEXT.tertiary
     )}
     {...props}
   />

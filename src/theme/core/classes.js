@@ -9,18 +9,24 @@ export const APP_BAR = {
 export const AVATAR = {
   root: 'avatar__root',
   small: 'avatar--small',
+  medium: 'avatar--medium',
   ultraLarge: 'avatar--ultra-large',
+  bordered: 'avatar--bordered',
+  link: 'avatar--link',
 };
 
 export const BADGE = {
   root: 'badge__root',
   dotted: 'badge--dotted',
+  number: 'badge--number',
+  badge: 'badge__badge',
 };
 
 export const BUTTON = {
   root: 'button__root',
   inverted: 'button--inverted',
   danger: 'button--danger',
+  large: 'button--large',
 };
 
 export const CARD = {
@@ -96,6 +102,13 @@ export const ICON = {
   red: 'icon--red',
   primary: 'icon--primary',
   small: 'icon--small',
+  text: 'icon--text',
+  light: 'icon--light',
+};
+
+export const INPUT_ADORNMENT = {
+  root: 'input-adornment__root',
+  positionStart: 'input-adornment--start',
 };
 
 export const LIST = {
@@ -110,6 +123,7 @@ export const LIST_ITEM = {
   active: 'list-item--active',
   category: 'list-item__category',
   subcategory: 'list-item__subcategory',
+  noPadY: 'list-item--no-pad-y',
 };
 
 export const LIST_ITEM_TEXT = {
@@ -135,16 +149,23 @@ export const OUTLINED_INPUT = {
   focused: 'outlined-input--notched-outline',
 };
 
+export const PAPER = {
+  root: 'paper__root',
+};
+
 export const TABS = {
   root: 'tabs__root',
   inverted: 'tabs--inverted',
   indicator: 'tabs__indicator',
+  underline: 'tabs--underline',
 };
 
 export const TAB = {
   root: 'tab__root',
   label: 'tab__label',
   selected: 'tab--selected',
+  wrapper: 'tab__wrapper',
+  onlyIcon: 'tab--only-icon',
 };
 
 export const TEXT = {
@@ -156,9 +177,12 @@ export const TEXT = {
   icon: 'text--icon',
   inverted: 'text--inverted',
   indented: 'text--indented',
-  indentedLg: 'text--indented-lg',
+  indentedLarge: 'text--indented-lg',
   light: 'text--light',
   lightWeight: 'text--light-weight',
+  tertiary: 'text--tertiary',
+  primary: 'text--primary',
+  secondary: 'text--secondary',
 };
 
 export const TOOLBAR = {
@@ -183,8 +207,11 @@ export default {
   LIST_ITEM_TEXT,
   LIST_ITEM_ICON,
   NOTCHED_OUTLINE,
+  OUTLINED_INPUT,
   ICON,
   ICON_BUTTON,
+  INPUT_ADORNMENT,
+  PAPER,
   TABS,
   TAB,
   TOOLBAR,
